@@ -6,12 +6,53 @@
         xmlns:local="clr-namespace:Tema3_Formulario"
         mc:Ignorable="d"
         Title="Formulario" Icon="assets/32.ico" Height="450" Width="800" MinHeight="550" MinWidth="850">
+
+    <Window.Resources>
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="DockPanel.Dock" Value="Right"></Setter>
+            <Setter Property="Padding" Value="25 2"></Setter>
+            <Setter Property="Margin" Value="5"></Setter>
+        </Style>
+        <Style TargetType="{x:Type Border}" x:Key="borde">
+            <Setter Property="DockPanel.Dock" Value="Top"></Setter>
+            <Setter Property="BorderThickness" Value="3"></Setter>
+            <Setter Property="BorderBrush" Value="Black"></Setter>
+            <Setter Property="CornerRadius" Value="3"></Setter>
+            <Setter Property="Margin" Value="10"></Setter>
+            <Setter Property="Padding" Value="0 10"></Setter>
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect/>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="{x:Type GroupBox}">
+            <Setter Property="Margin" Value="5"></Setter>
+            <Setter Property="Width" Value="200"></Setter>
+            <Setter Property="Padding" Value="5 10"></Setter>
+        </Style>
+        <Style TargetType="{x:Type TextBlock}" x:Key="etiquetaFormulario">
+            <Setter Property="Grid.Column" Value="0"></Setter>
+            <Setter Property="Margin" Value="5"></Setter>
+        </Style>
+        <Style TargetType="{x:Type TextBox}" x:Key="inputFormulario">
+            <Setter Property="Grid.Column" Value="1"></Setter>
+            <Setter Property="Margin" Value="0 5"></Setter>
+        </Style>
+        <Style TargetType="{x:Type Image}" x:Key="tooltipFormulario">
+            <Setter Property="Grid.Column" Value="2"></Setter>
+            <Setter Property="Source" Value="assets/info.png"></Setter>
+            <Setter Property="Height" Value="20"></Setter>
+            <Setter Property="Margin" Value="5"></Setter>
+        </Style>
+    </Window.Resources>
+    
     <DockPanel>
         <TextBlock DockPanel.Dock="Top" FontSize="40" FontWeight="Bold" HorizontalAlignment="Center">Formulario</TextBlock>
         <DockPanel DockPanel.Dock="Bottom" LastChildFill="False">
             <TextBlock FontSize="20" FontStyle="Italic" VerticalAlignment="Center" Margin="5">Aaron Diaz</TextBlock>
-            <Button DockPanel.Dock="Right" Padding="25 2" Margin="5">Cancelar</Button>
-            <Button DockPanel.Dock="Right" Padding="25 2" Margin="5">Aceptar</Button>
+            <Button>Cancelar</Button>
+            <Button>Aceptar</Button>
         </DockPanel>
         <Grid>
             <Grid.ColumnDefinitions>
@@ -23,10 +64,7 @@
             </Grid.RowDefinitions>
             <Image Grid.Column="1" Source="assets/foto.jpg" Stretch="Fill" Margin="5 10 20 5"></Image>
             <DockPanel LastChildFill="False">
-                <Border DockPanel.Dock="Top" Grid.Column="0" BorderThickness="3" BorderBrush="Black" CornerRadius="3" Background="LightBlue" Margin="10" Padding="0 10">
-                    <Border.Effect>
-                        <DropShadowEffect/>
-                    </Border.Effect>
+                <Border Background="LightBlue" Style="{StaticResource borde}">                    
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="auto"></ColumnDefinition>
@@ -38,23 +76,20 @@
                             <RowDefinition></RowDefinition>
                             <RowDefinition></RowDefinition>
                         </Grid.RowDefinitions>
-                        <TextBlock Grid.Row="0" Grid.Column="0" Margin="5">Nombre</TextBlock>
-                        <TextBlock Grid.Row="1" Grid.Column="0" Margin="5">Edad</TextBlock>
-                        <TextBlock Grid.Row="2" Grid.Column="0" Margin="5">Dirección</TextBlock>
-                        <TextBox Grid.Row="0" Grid.Column="1" Margin="0 5"></TextBox>
-                        <TextBox Grid.Row="1" Grid.Column="1" Margin="0 5"></TextBox>
-                        <TextBox Grid.Row="2" Grid.Column="1" Margin="0 5"></TextBox>
-                        <Image Grid.Row="0" Grid.Column="2" Source="assets/info.png" Height="20" ToolTip="Máximo de 100 caracteres" Margin="5"></Image>
-                        <Image Grid.Row="1" Grid.Column="2" Source="assets/info.png" Height="20" ToolTip="Número entero entre 0 y 100"  Margin="5"></Image>
-                        <Image Grid.Row="2" Grid.Column="2" Source="assets/info.png" Height="20" ToolTip="Incluir el código postal" Margin="5"></Image>
+                        <TextBlock Grid.Row="0" Style="{StaticResource etiquetaFormulario}">Nombre</TextBlock>
+                        <TextBlock Grid.Row="1" Style="{StaticResource etiquetaFormulario}">Edad</TextBlock>
+                        <TextBlock Grid.Row="2" Style="{StaticResource etiquetaFormulario}">Dirección</TextBlock>
+                        <TextBox Grid.Row="0" Style="{StaticResource inputFormulario}"></TextBox>
+                        <TextBox Grid.Row="1" Style="{StaticResource inputFormulario}"></TextBox>
+                        <TextBox Grid.Row="2" Style="{StaticResource inputFormulario}"></TextBox>
+                        <Image Grid.Row="0" ToolTip="Máximo de 100 caracteres" Style="{StaticResource tooltipFormulario}"></Image>
+                        <Image Grid.Row="1" ToolTip="Número entero entre 0 y 100" Style="{StaticResource tooltipFormulario}"></Image>
+                        <Image Grid.Row="2" ToolTip="Incluir el código postal" Style="{StaticResource tooltipFormulario}"></Image>
                     </Grid>
                 </Border>
-                <Border DockPanel.Dock="Top" BorderThickness="3" BorderBrush="Black" CornerRadius="3" Background="LightGoldenrodYellow" Margin="10" Padding="0 10">
-                    <Border.Effect>
-                        <DropShadowEffect/>
-                    </Border.Effect>
+                <Border Background="LightGoldenrodYellow" Style="{StaticResource borde}">
                     <StackPanel Orientation="Horizontal">
-                        <GroupBox Header="Aficiones" Margin="5" Width="200" Padding="5 10">
+                        <GroupBox Header="Aficiones">
                             <StackPanel>
                                 <CheckBox Content="Hacer deporte"></CheckBox>
                                 <CheckBox Content="Viajar"></CheckBox>
@@ -62,7 +97,7 @@
                                 <CheckBox Content="Leer comics"></CheckBox>
                             </StackPanel>
                         </GroupBox>
-                        <GroupBox Header="Estado civil" Margin="5" Width="200" Padding="5 10">
+                        <GroupBox Header="Estado civil">
                             <StackPanel>
                                 <RadioButton Content="Soltero" IsChecked="True"></RadioButton>
                                 <RadioButton Content="Casado"></RadioButton>
