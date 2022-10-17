@@ -7,46 +7,6 @@
         mc:Ignorable="d"
         Title="Formulario" Icon="assets/32.ico" Height="450" Width="800" MinHeight="550" MinWidth="850">
 
-    <Window.Resources>
-        <Style TargetType="{x:Type Button}">
-            <Setter Property="DockPanel.Dock" Value="Right"></Setter>
-            <Setter Property="Padding" Value="25 2"></Setter>
-            <Setter Property="Margin" Value="5"></Setter>
-        </Style>
-        <Style TargetType="{x:Type Border}" x:Key="borde">
-            <Setter Property="DockPanel.Dock" Value="Top"></Setter>
-            <Setter Property="BorderThickness" Value="3"></Setter>
-            <Setter Property="BorderBrush" Value="Black"></Setter>
-            <Setter Property="CornerRadius" Value="3"></Setter>
-            <Setter Property="Margin" Value="10"></Setter>
-            <Setter Property="Padding" Value="0 10"></Setter>
-            <Setter Property="Effect">
-                <Setter.Value>
-                    <DropShadowEffect/>
-                </Setter.Value>
-            </Setter>
-        </Style>
-        <Style TargetType="{x:Type GroupBox}">
-            <Setter Property="Margin" Value="5"></Setter>
-            <Setter Property="Width" Value="200"></Setter>
-            <Setter Property="Padding" Value="5 10"></Setter>
-        </Style>
-        <Style TargetType="{x:Type TextBlock}" x:Key="etiquetaFormulario">
-            <Setter Property="Grid.Column" Value="0"></Setter>
-            <Setter Property="Margin" Value="5"></Setter>
-        </Style>
-        <Style TargetType="{x:Type TextBox}" x:Key="inputFormulario">
-            <Setter Property="Grid.Column" Value="1"></Setter>
-            <Setter Property="Margin" Value="0 5"></Setter>
-        </Style>
-        <Style TargetType="{x:Type Image}" x:Key="tooltipFormulario">
-            <Setter Property="Grid.Column" Value="2"></Setter>
-            <Setter Property="Source" Value="assets/info.png"></Setter>
-            <Setter Property="Height" Value="20"></Setter>
-            <Setter Property="Margin" Value="5"></Setter>
-        </Style>
-    </Window.Resources>
-    
     <DockPanel>
         <TextBlock DockPanel.Dock="Top" FontSize="40" FontWeight="Bold" HorizontalAlignment="Center">Formulario</TextBlock>
         <DockPanel DockPanel.Dock="Bottom" LastChildFill="False">
